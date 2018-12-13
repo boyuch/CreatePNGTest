@@ -216,7 +216,7 @@ def build_image_using_palette(img_fname, palette_dict):
             x_squared = x**2
             y_squared = y**2
             third_step = abs(x_squared - y_squared)
-            fourth_step = 2 * (x + y)
+            fourth_step = 2 * (x * y)
             fifth_step = third_step + fourth_step
             sixth_step = int(sqrt(fifth_step))
             seventh_step = int(sixth_step % 355)
@@ -224,4 +224,3 @@ def build_image_using_palette(img_fname, palette_dict):
             my_image_pixels[x, y] = pixel_color
     print(f'saving {img_fname}')
     my_image.save(img_fname, 'png')
-    pass
