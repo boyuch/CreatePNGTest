@@ -231,8 +231,8 @@ def build_image_using_palette(img_fname, palette_dict):
     image_y_size = my_image.size[1]
     for x in range(image_x_size):
         for y in range(image_y_size):
-            seventh_step = palette_calculation(x,y)
-            pixel_color = palette_dict[seventh_step]
+            final_result = palette_calculation(x,y)
+            pixel_color = palette_dict[final_result]
             my_image_pixels[x, y] = pixel_color
     print(f'saving {img_fname}')
     my_image.save(img_fname, 'png')
