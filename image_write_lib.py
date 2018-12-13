@@ -121,7 +121,16 @@ def build_image_cyan_gradient_diagonal(img_fname):
     Consider what the value of x+y is at the top left and at the
     bottom right
     """
-    pass
+    my_image = Image.new('RGB', (512,512) )
+    my_image_pixels = my_image.load()
+    image_x_size = my_image.size[0]
+    image_y_size = my_image.size[1]
+    for x in range(image_x_size):
+        for y in range(image_y_size):
+            pixel_color = (0,int((x + y)/4), int((x + y)/4))
+            my_image_pixels[x , y] = pixel_color
+    print(f'saving {img_fname}')
+    my_image.save(img_fname, 'png')
 
 def build_image_green_gradient_diagonal_inverted(img_fname):
     """
