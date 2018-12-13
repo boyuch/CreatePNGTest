@@ -183,6 +183,15 @@ def build_palette_dictionary(palette_fname):
             my_palette_dict[key] = value
     return my_palette_dict
 
+def calculation(x,y):
+    x_squared = x**2
+    y_squared = y**2
+    third_step = abs(x_squared - y_squared)
+    fourth_step = 2 * (x * y)
+    fifth_step = third_step + fourth_step
+    sixth_step = int(sqrt(fifth_step))
+    final_result = int(sixth_step % 255)
+    return final_result
 
 def build_image_using_palette(img_fname, palette_dict):
     """
@@ -213,13 +222,7 @@ def build_image_using_palette(img_fname, palette_dict):
     image_y_size = my_image.size[1]
     for x in range(image_x_size):
         for y in range(image_y_size):
-            x_squared = x**2
-            y_squared = y**2
-            third_step = abs(x_squared - y_squared)
-            fourth_step = 2 * (x * y)
-            fifth_step = third_step + fourth_step
-            sixth_step = int(sqrt(fifth_step))
-            seventh_step = int(sixth_step % 355)
+            seventh_step = calculation(x,y)
             pixel_color = palette_dict[seventh_step]
             my_image_pixels[x, y] = pixel_color
     print(f'saving {img_fname}')

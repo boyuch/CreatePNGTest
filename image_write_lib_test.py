@@ -84,7 +84,7 @@ class TestImages(unittest.TestCase):
 
     def test_trophy_palette (self):
         # read the palette and build a dictionary
-        palette_fname = 'CHROMA.MAP.csv'
+        palette_fname = 'HEADACHE.MAP.csv'
         palette_dict = build_palette_dictionary(MY_DIR + palette_fname)
         # print(palette_dict)
 
